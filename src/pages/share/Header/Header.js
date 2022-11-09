@@ -13,14 +13,18 @@ const Header = () => {
     const menuitem = <>
         <li className='font-bold text-1xl'><Link to='/'>Home</Link></li>
         <li className='font-bold text-1xl'><Link to='/services'>Service</Link></li>
+        <li className='font-bold text-1xl'><Link to='/blog'>Blog</Link></li>
+
 
         {
             user?.email ?
                 <>
-                    <span className='flex aligns-center justify-center me-3 fw-bold'>{user?.displayName}</span>
+                    <li className='font-bold text-1xl'><Link to='/addservice'>Add Service</Link></li>
+                    <span className='flex items-center justify-center ml-6 font-bold'>{user?.displayName}</span>
                     <li className='font-semibold'>
                         <button onClick={handlelogOut} className='btn-ghost'>log Out</button>
                     </li>
+
                 </>
                 :
                 <>
@@ -68,7 +72,8 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/blog'><button className="btn btn-outline btn-info">My Blog</button></Link>
+                <input type="text" placeholder="Search" className="input input-bordered input-info w-full max-w-xs" />
+                {/* <Link to='/blog'><button className="btn btn-outline btn-info">My Blog</button></Link> */}
             </div>
         </div>
     );

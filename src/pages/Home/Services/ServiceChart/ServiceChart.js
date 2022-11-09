@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 const ServiceChart = ({ service }) => {
-    const { img, price, title, description, rating } = service;
+    const { img, price, title, description, rating, _id } = service;
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
             <figure><img src={img} alt="Shoes" /></figure>
@@ -17,9 +17,9 @@ const ServiceChart = ({ service }) => {
                     <span> {rating?.number}</span>
                 </div>
 
-                <div className="card-actions justify-end">
-                    <Link to='/services' >
-                        <button className="btn btn-info text-white">More details</button>
+                <div className="card-actions mx-auto">
+                    <Link to={`/servicesDetails/${_id}`} >
+                        <button className="btn btn-info text-white ">More details</button>
                     </Link>
                 </div>
             </div>

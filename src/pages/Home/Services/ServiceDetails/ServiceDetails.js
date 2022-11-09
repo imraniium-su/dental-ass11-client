@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 
 const ServiceDetails = ({ service }) => {
-    const { img, title, price, description, rating } = service;
+    const { img, title, price, description, rating, _id } = service;
 
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
@@ -18,9 +18,9 @@ const ServiceDetails = ({ service }) => {
                     Review: <FaStar className='text-warning me-2'></FaStar>
                     <span> {rating?.number}</span>
                 </div>
-                <div className="card-actions justify-end">
-                    <Link >
-                        <button className="btn btn-info text-white">Add me</button>
+                <div className="card-actions mx-auto">
+                    <Link to={`/servicesDetails/${_id}`} >
+                        <button className="btn btn-info text-white ">More details</button>
                     </Link>
                 </div>
             </div>
