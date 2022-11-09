@@ -67,7 +67,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-outline btn-info">My Blog</button>
+                <Link to='/blog'><button className="btn btn-outline btn-info">My Blog</button></Link>
             </div>
         </div>
     );

@@ -1,11 +1,14 @@
 [
     {
-        "_id": "635a0c0b64a6d231228942ae",
         "service_id": "04",
         "title": "ROUTINE CHECK UPS",
         "img": "https://media.istockphoto.com/id/1297604613/photo/you-may-be-at-risk-for-heart-disease-and-stroke.jpg?s=612x612&w=0&k=20&c=doTBHM4sacoH4M6cDiJkziXD5YQZDfBGy-p08Ow5RYE=",
         "price": "20.00",
         "description": "It usually includes a health history, physical exam and tests. It is important to have a regular doctor who helps make sure you receive the medical care that is best for your individual needs. But healthy people often don't need annual physicals, and they can even do more harm than good.",
+        "rating": {
+            "number": 4.8,
+            "badge": "Excellent"
+        },
         "facility": [
             {
                 "name": "Instant  Services",
@@ -26,12 +29,15 @@
         ]
     },
     {
-        "_id": "635a0c0b64a6d231228942af",
         "service_id": "05",
         "title": "EMERGENCY DENTISTRY",
         "img": "https://media.istockphoto.com/id/481501953/photo/autoclave-sterilizer.jpg?s=612x612&w=0&k=20&c=83kZ6UKiHwj6yixog9V2oQ-3atWbmtUszRaQXDabbgw=",
         "price": "80.00",
         "description": "Their condition means they are most likely to present in Accident & Emergency departments with: • Uncontrollable dental haemorrhage following extractions; • Rapidly increasing swelling around the throat or eye; • Trauma confined to the dental arches. As a general rule, you should go to the emergency room if you are experiencing unbearable pain or bleeding that cannot be stopped and your dentist's office is closed. If you are not in excruciating pain, you are advised to call your dentist and explain the situation.",
+        "rating": {
+            "number": 4.6,
+            "badge": "Excellent"
+        },
         "facility": [
             {
                 "name": "Instant  Services",
@@ -52,12 +58,15 @@
         ]
     },
     {
-        "_id": "635b591a1dafe382a9da8c96",
         "service_id": "01",
         "title": "DIGITAL SMILE MAKEOVERS",
         "img": "https://media.istockphoto.com/id/1072808282/photo/muslim-women-in-kimono.jpg?s=612x612&w=0&k=20&c=bzBtktqY5tzKdSMzm1nM1skCoz5YdjaIQ0W3FnBrgYw=",
         "price": "200.00",
         "description": "A digital smile makeover is a real thing. There is software that has been around for over 20 years now that enables the cosmetic dentist to take a photograph of you and then digitally enhance it to show you exactly how our new smile will look.",
+        "rating": {
+            "number": 4.7,
+            "badge": "Excellent"
+        },
         "facility": [
             {
                 "name": "Instant Car Services",
@@ -78,12 +87,15 @@
         ]
     },
     {
-        "_id": "635b5afc1dafe382a9da8c98",
         "service_id": "02",
         "title": "FULL MOUTH X-RAYS",
         "img": "https://media.istockphoto.com/id/1191146127/photo/dentistry.jpg?s=612x612&w=0&k=20&c=GqQScTkZjd6b_DymH-xEFZMUhAX6o6iIpgWL-mqhOMI=",
         "price": "100.00",
         "description": "Panoramic radiography, also called panoramic x-ray, is a two-dimensional (2-D) dental x-ray examination that captures the entire mouth in a single image, including the teeth, upper and lower jaws, surrounding structures and tissues.",
+        "rating": {
+            "number": 4.6,
+            "badge": "Excellent"
+        },
         "facility": [
             {
                 "name": "Instant Car Services",
@@ -104,12 +116,15 @@
         ]
     },
     {
-        "_id": "635b5b691dafe382a9da8c99",
         "service_id": "03",
         "title": "TEETH WHITENING",
         "img": "https://media.istockphoto.com/id/1280259775/photo/woman-at-the-dentist.jpg?s=612x612&w=0&k=20&c=W8xu4EWZsNLECUg04ND6h1D8MuPZUTTkv4bMbkFZ4NA=",
         "price": "150.00",
         "description": "Having your teeth whitened in-office will cost approximately $600, and while this is significantly more money than the cost of take-home kits or other teeth whitening products, such as gels, gums, or whitening toothpastes, which can range from $5 to $50, having your teeth whitened in office will result in a",
+        "rating": {
+            "number": 4.5,
+            "badge": "Excellent"
+        },
         "facility": [
             {
                 "name": "Instant Car Services",
@@ -130,12 +145,15 @@
         ]
     },
     {
-        "_id": "635b5ba51dafe382a9da8c9a",
         "service_id": "06",
         "title": "LASER DENTISTRY",
         "img": "https://media.istockphoto.com/id/474117482/photo/woman-to-the-dentist.jpg?s=612x612&w=0&k=20&c=M9qp2-1sirB1FNVF9cSbuXG_RsuYnvr3b7rx0MOuD9Q=",
         "price": "90.00",
         "description": "Lasers are used to reshape gums and remove bacteria during root canal procedures. Biopsy or lesion removal. Lasers can be used to remove a small piece of tissue (called a biopsy) so that it can be examined for cancer. Lasers are also used to remove lesions in the mouth and relieve the pain of canker sores.",
+        "rating": {
+            "number": 4.5,
+            "badge": "Excellent"
+        },
         "facility": [
             {
                 "name": "Instant Car Services",
@@ -156,12 +174,15 @@
         ]
     },
     {
-        "_id": "635b5ba51dafe382a9da8c9a",
         "service_id": "07",
         "title": "GUM SURGERY",
         "img": "https://media.istockphoto.com/id/1206841364/photo/dental-care-check-up-dentist-examining-and-doing-teeth-treatment-in-dental-clinic-yearly.jpg?s=612x612&w=0&k=20&c=8-cFpJY8bafQi2r1saL5M5jhtVJazf8Mrz1p1i4uBZs=",
         "price": "200.00",
         "description": "Periodontitis usually requires a visit to a gum doctor, known as a periodontist, and treatment may involve gum surgery. Periodontal surgery can regrow damaged bones and tissues, prevent tooth loss, reduce gum gaps between the teeth, and reshape the jawbone to eliminate bacterial growth.",
+        "rating": {
+            "number": 4.7,
+            "badge": "Excellent"
+        },
         "facility": [
             {
                 "name": "Instant Car Services",
@@ -182,12 +203,15 @@
         ]
     },
     {
-        "_id": "635b5ba51dafe382a9da8c9a",
         "service_id": "08",
         "title": "CHILDREN'S DENTAL CARE",
         "img": "https://media.istockphoto.com/id/510634014/photo/beautiful-girl-at-the-dentist.jpg?s=612x612&w=0&k=20&c=ayD_tMv4ndZMYH6-r3xHQWVgTcuS92Q98ZWK57HqAf8=",
         "price": "100.00",
         "description": "Orthodontic treatment is usually only started after most of a child's adult teeth have started to come through. This is usually when they're about 12 years old, but it depends on how many of their adult teeth have come through and the growth of their face and jaws.",
+        "rating": {
+            "number": 4.6,
+            "badge": "Excellent"
+        },
         "facility": [
             {
                 "name": "Instant Car Services",
