@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css'
 
 const Footer = () => {
-    const [service, setService] = useState([]);
+    const [services, setService] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/services')
             .then(res => res.json())
@@ -16,8 +17,10 @@ const Footer = () => {
             </div>
             <div>
                 <span className="footer-title">Services</span>
-                <a className="link link-hover text-white">{service.title}</a>
 
+                {
+                    services.map(service => <Link to='/services'><a className="link link-hover">{service.title}</a></Link>)
+                }
             </div>
             <div>
                 <span className="footer-title">ConTact</span>
