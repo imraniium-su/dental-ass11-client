@@ -4,6 +4,7 @@ const Meetteam = () => {
     return (
         <div className=''>
             <h1 className='text-4xl font-bold text-center mt-6'>MEET OUR TEAM</h1>
+            <p className='text-center mt-2'>Since 2000 we have remained dedicated to providing you and your family with the absolute highest level of professional and affordable dental care. <br /> Since obtaining of dental degree, our panel specialists have attended extensive continuing education training courses.</p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6 mx-4'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <figure><img src="https://www.questdentalmalaysia.com/wp-content/uploads/2021/09/IMG_2901-683x1024.jpg" alt="Shoes" /></figure>

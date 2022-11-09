@@ -17,6 +17,7 @@ const Header = () => {
         {
             user?.email ?
                 <>
+                    <span className='flex items-center justify-center me-3 fw-bold'>{user?.displayName}</span>
                     <li className='font-semibold'>
                         <button onClick={handlelogOut} className='btn-ghost'>log Out</button>
                     </li>

@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contex/Authprovider/AuthProvider';
 
 const Signup = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateuserprofile } = useContext(AuthContext);
     const handleSignup = event => {
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
@@ -14,8 +15,17 @@ const Signup = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                handleUpdateUserprofile(name);
             })
             .catch(err => console.error(err))
+    }
+    const handleUpdateUserprofile = (name) => {
+        const profile = {
+            displayName: name
+        }
+        updateuserprofile(profile)
+            .then(() => { })
+            .catch(error => console.error(error));
     }
 
     return (
