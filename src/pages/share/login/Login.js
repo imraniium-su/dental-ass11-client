@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contex/Authprovider/AuthProvider';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const { login, sigInwithGoogle } = useContext(AuthContext);
     const handlelogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -16,6 +17,14 @@ const Login = () => {
                 console.log(user);
             })
             .catch(err => console.error(err))
+    }
+    const handleGoogleSingIn = () => {
+        sigInwithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
     }
     return (
         <div className="hero w-full my-16">
@@ -48,7 +57,7 @@ const Login = () => {
                         </div>
                     </form>
                     <p className='text-center'>New to Car Doctor <Link className='text-orange-600 font-bold' to='/signup'> Sign Up</Link></p>
-
+                    <button onClick={handleGoogleSingIn} className='btn bg-slate-400 mx-10 mt-3'><FaGoogle></FaGoogle><span className='mx-2'> login with Google</span> </button>
                 </div>
             </div>
         </div>

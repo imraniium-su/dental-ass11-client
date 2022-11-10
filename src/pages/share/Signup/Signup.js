@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contex/Authprovider/AuthProvider';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Signup = () => {
-    const { createUser, updateuserprofile } = useContext(AuthContext);
+    const { createUser, updateuserprofile, sigInwithGoogle } = useContext(AuthContext);
     const handleSignup = event => {
         event.preventDefault();
         const form = event.target;
@@ -26,6 +27,14 @@ const Signup = () => {
         updateuserprofile(profile)
             .then(() => { })
             .catch(error => console.error(error));
+    }
+    const handleGoogleSingIn = () => {
+        sigInwithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
     }
 
     return (
@@ -58,11 +67,12 @@ const Signup = () => {
 
                         </div>
                         <div className="form-control mt-6">
-                            <input className='btn btn-primary' type="submit" value='Sign Up' />
+                            <input className='btn btn-info text-white' type="submit" value='Sign Up' />
 
                         </div>
                     </form>
                     <p className='text-center'>Have an Account <Link className='text-orange-600 font-bold' to='/login'> Log In</Link></p>
+                    <button onClick={handleGoogleSingIn} className='btn bg-slate-400 mx-10 mt-3'><FaGoogle></FaGoogle><span className='mx-2'> login with Google</span> </button>
                 </div>
             </div>
         </div>
