@@ -5,6 +5,7 @@ import { AuthContext } from '../../../../contex/Authprovider/AuthProvider';
 const ServiceViesDetails = () => {
     const { _id, title, img, description, price } = useLoaderData();
     const { user } = useContext(AuthContext);
+    // console.log(user);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -13,7 +14,7 @@ const ServiceViesDetails = () => {
         const user_id = user.uid;
         const user_email = user.email;
         const user_name = user.displayName;
-        const user_photo = user.image;
+        const user_photo = user.photoURL;
 
         const review = { review_t, service_id, user_id, user_email, user_name, user_photo }
         fetch('http://localhost:5000/reviews', {
@@ -52,6 +53,9 @@ const ServiceViesDetails = () => {
             <div className='my-10'>
                 <div className='bg-slate-200 rounded py-1'>
                     <h2 className='text-3xl text-center font-semibold mb-4'>Review</h2>
+                </div>
+                <div>
+
                 </div>
                 <form onSubmit={handleSubmit} >
 
