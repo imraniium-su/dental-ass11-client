@@ -10,7 +10,8 @@ const Review = () => {
             .then(res => res.json())
             .then(data => setReview(data))
     }, [user?.email])
-    const handleDelete = id => {
+
+    const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to cancel this ');
         if (proceed) {
             fetch(`http://localhost:5000/reviews/${id}`, {
@@ -27,9 +28,13 @@ const Review = () => {
                 })
         }
     }
+    const handleReviewUpdate = (event) => {
+        event.preventDefault();
+        const review_t = event.target.review.value;
+    }
     return (
         <div>
-            <h2>review:{reviews.length}</h2>
+
             <div className='text-center text-2xl font-semibold bg-slate-200 py-1 rounded mb-4'>
                 <h2>See All Review</h2>
             </div>
@@ -55,7 +60,7 @@ const Review = () => {
                         {
                             reviews.map(review => <ReviewRow key={review._id} review={review}
 
-                                handleDelete={handleDelete}></ReviewRow>)
+                                handleDelete={handleDelete} handleReviewUpdate={handleReviewUpdate}></ReviewRow>)
                         }
 
                     </tbody>

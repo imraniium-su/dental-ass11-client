@@ -63,7 +63,7 @@ const ServiceViesDetails = () => {
                 <div className='bg-slate-200 rounded py-1'>
                     <h2 className='text-3xl text-center font-semibold mb-4'>Review</h2>
                 </div>
-                <div>
+                <div className='p-2 bg-slate-200 my-2 rounded mx-2'>
                     {
                         reviews.map(review => <ServiceViewReview key={review._id} review={review}></ServiceViewReview>)
                     }

@@ -4,7 +4,7 @@ import ServiceChart from '../Services/ServiceChart/ServiceChart';
 const ServiceHome = () => {
     const [services, setService] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch(`http://localhost:5000/services?size=${3}`)
             .then(res => res.json())
             .then(data => setService(data))
     }, [])
