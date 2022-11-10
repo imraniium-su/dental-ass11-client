@@ -8,6 +8,7 @@ const ServiceViesDetails = () => {
     const { _id, title, img, description, price } = useLoaderData();
     const { user } = useContext(AuthContext);
     const [reviews, setReview] = useState([]);
+    console.log(reviews);
     useEffect(() => {
         fetch(`http://localhost:5000/reviews?user_email=${user?.email}`)
             .then(res => res.json())
@@ -64,7 +65,7 @@ const ServiceViesDetails = () => {
                 </div>
                 <div>
                     {
-                        reviews.map(reviw => <ServiceViewReview></ServiceViewReview>)
+                        reviews.map(review => <ServiceViewReview key={review._id} review={review}></ServiceViewReview>)
                     }
                 </div>
                 <form onSubmit={handleSubmit} >
