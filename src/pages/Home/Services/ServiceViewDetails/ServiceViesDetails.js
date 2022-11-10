@@ -1,10 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../../contex/Authprovider/AuthProvider';
+import { FaUser, FaSun, FaMoon } from 'react-icons/fa';
+import ServiceViewReview from './ServiceVIewReview/ServiceViewReview';
 
 const ServiceViesDetails = () => {
     const { _id, title, img, description, price } = useLoaderData();
     const { user } = useContext(AuthContext);
+    const [reviews, setReview] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews?user_email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => setReview(data))
+    }, [user?.email])
     // console.log(user);
 
     const handleSubmit = (event) => {
@@ -55,7 +63,9 @@ const ServiceViesDetails = () => {
                     <h2 className='text-3xl text-center font-semibold mb-4'>Review</h2>
                 </div>
                 <div>
-
+                    {
+                        reviews.map(reviw => <ServiceViewReview></ServiceViewReview>)
+                    }
                 </div>
                 <form onSubmit={handleSubmit} >
 
