@@ -16,6 +16,22 @@ const ServiceViesDetails = () => {
         const user_photo = user.image;
 
         const review = { review_t, service_id, user_id, user_email, user_name, user_photo }
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    alert('Review placed Successfully')
+
+                }
+            })
+
 
 
     }
