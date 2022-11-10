@@ -8,6 +8,7 @@ import Blog from "../pages/share/Blog/Blog";
 import Footer from "../pages/share/Footer/Footer";
 import Login from "../pages/share/login/Login";
 import Signup from "../pages/share/Signup/Signup";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -32,15 +33,15 @@ const router = createBrowserRouter([
                 path: '/blog', element: <Blog></Blog>
             },
             {
-                path: '/servicesDetails/:id', element: <ServiceViesDetails></ServiceViesDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                path: '/servicesDetails/:id', element: <PrivateRoute><ServiceViesDetails></ServiceViesDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://assignment-11-dental-server.vercel.app/services/${params.id}`)
 
             },
             {
-                path: '/addservice', element: <AddService></AddService>
+                path: '/addservice', element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
-                path: '/review', element: <Review></Review>
+                path: '/review', element: <PrivateRoute><Review></Review></PrivateRoute>
             }
 
         ]

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ServiceChart from '../Services/ServiceChart/ServiceChart';
 
 const ServiceHome = () => {
     const [services, setService] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/services?size=${3}`)
+        fetch(`https://assignment-11-dental-server.vercel.app/services?size=${3}`)
             .then(res => res.json())
             .then(data => setService(data))
     }, [])
@@ -16,6 +17,11 @@ const ServiceHome = () => {
                 {
                     services.map(service => <ServiceChart key={service._id} service={service}></ServiceChart>)
                 }
+            </div>
+            <div className="card-actions flex justify-center">
+                <Link to='/services' >
+                    <button className="btn btn-info text-white "> See More Services.....</button>
+                </Link>
             </div>
         </div>
     );

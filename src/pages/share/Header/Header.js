@@ -13,25 +13,25 @@ const Header = () => {
     const menuitem = <>
         <li className='font-bold text-1xl'><Link to='/'>Home</Link></li>
         <li className='font-bold text-1xl'><Link to='/services'>Service</Link></li>
-        <li className='font-bold text-1xl'><Link to='/review'>Reviews</Link></li>
         <li className='font-bold text-1xl'><Link to='/blog'>Blog</Link></li>
 
 
         {
             user?.email ?
                 <>
+                    <li className='font-bold text-1xl'><Link to='/review'>My Reviews</Link></li>
                     <li className='font-bold text-1xl'><Link to='/addservice'>Add Service</Link></li>
                     <span className='flex items-center justify-center ml-6 font-bold'>{user?.displayName}</span>
                     <li className='font-semibold'>
-                        <button onClick={handlelogOut} className='btn-ghost'>log Out</button>
+                        <button onClick={handlelogOut} className='btn btn-outline btn-info mx-2'>log Out</button>
                     </li>
 
                 </>
                 :
                 <>
 
-                    <li className='font-bold text-1xl'><Link to='/login'>Log In</Link></li>
-                    <li className='font-bold text-1xl'><Link to='/signup'>Sign Up</Link></li>
+                    <li className='font-bold text-1xl '><Link to='/login'><button className="btn btn-outline btn-info">Log In</button></Link></li>
+                    <li className='font-bold text-1xl  '><Link to='/signup'><button className="btn btn-outline btn-info">Sign Up</button></Link></li>
                 </>
         }
 
@@ -73,7 +73,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <input type="text" placeholder="Search" className="input input-bordered input-info w-full max-w-xs" />
+                <input type="text" placeholder="Search" className="input input-bordered input-info w-1/2 max-w-xs" />
                 {/* <Link to='/blog'><button className="btn btn-outline btn-info">My Blog</button></Link> */}
             </div>
         </div>

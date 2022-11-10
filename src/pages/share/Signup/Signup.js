@@ -2,9 +2,12 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contex/Authprovider/AuthProvider';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { setAuthToken } from '../../../apiservice/auth';
+import useTitle from '../../../hooks/usetitle';
 
 const Signup = () => {
     const { createUser, updateuserprofile, sigInwithGoogle } = useContext(AuthContext);
+    useTitle('signup')
     const handleSignup = event => {
         event.preventDefault();
         const form = event.target;
@@ -16,6 +19,7 @@ const Signup = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setAuthToken(user);
                 handleUpdateUserprofile(name);
             })
             .catch(err => console.error(err))

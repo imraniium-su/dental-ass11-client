@@ -7,8 +7,8 @@ const ServiceViewReview = ({ review }) => {
 
 
     return (
-        <div>
-            <div className='flex my-3'>
+        <div className='mb-3 p-3 bg-slate-200 rounded my-4'>
+            <div className='flex my-2'>
                 <div >
                     {review?.user_photo ?
                         <img className='ms-3 d-flex align-items-center justify-content-center rounded-full' style={{ height: '40px' }} src={user_photo} alt="" />

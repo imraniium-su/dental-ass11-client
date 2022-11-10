@@ -1,14 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 
-const ReviewRow = ({ review, handleDelete, handleReviewUpdate }) => {
+const ReviewRow = ({ review, handleDelete, update }) => {
     const { review_t, user_email, user_name, service_id, _id } = review;
     const [reviewService, setReviewservice] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${service_id}`)
+        fetch(`https://assignment-11-dental-server.vercel.app/services/${service_id}`)
             .then(res => res.json())
             .then(data => setReviewservice(data));
     }, [])
+
+    const handleReviewUpdate = (event) => {
+        event.preventDefault();
+        const review = event.target.review_t.value;
+        console.log(review, _id);
+
+        fetch(`https://assignment-11-dental-server.vercel.app/reviews/${_id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ review_t: { review } })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                toast.success('Updated')
+                update();
+
+            })
+    }
 
     return (
         <tr>
@@ -37,12 +59,13 @@ const ReviewRow = ({ review, handleDelete, handleReviewUpdate }) => {
                 <div className="modal">
                     <div className="modal-box w-11/12 max-w-5xl">
                         <h3 className="font-bold text-lg">Edit your Review</h3>
-                        <form onClick={() => handleReviewUpdate((_id))}>
-                            <textarea name="review" className="textarea textarea-bordered h-24 w-full mt-4" placeholder="Your Review Edit" required></textarea>
+                        <form onSubmit={handleReviewUpdate}>
+                            <textarea name="review_t" className="textarea textarea-bordered h-24 w-full mt-4" placeholder="Your Review Edit" defaultValue={review_t} required></textarea>
+                            <div className="modal-action">
+                                <label htmlFor="my-modal-5" className="btn">Close</label>
+                                <input type="submit" value="Submit" className='btn' />
+                            </div>
                         </form>
-                        <div className="modal-action">
-                            <label htmlFor="my-modal-5" className="btn">Submit</label>
-                        </div>
                     </div>
                 </div>
             </th>

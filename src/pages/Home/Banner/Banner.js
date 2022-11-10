@@ -17,7 +17,7 @@ const Banner = () => {
 
                 <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-3/4">
                     <Link to='/services'><button className="btn btn-info mr-5 text-white">Discover More</button></Link>
-                    <Link to='/services'><button className="btn btn-outline btn-info">More About Service</button></Link>
+
                 </div>
                 <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
                     <a href="#slide4" className="btn btn-circle mr-4">❮</a>
@@ -34,7 +34,7 @@ const Banner = () => {
 
                 <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-3/4">
                     <button className="btn btn-info mr-5 text-white">Discover More</button>
-                    <button className="btn btn-outline btn-info">More About Service</button>
+
                 </div>
                 <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
                     <a href="#slide1" className="btn btn-circle mr-4">❮</a>
@@ -51,7 +51,7 @@ const Banner = () => {
 
                 <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-3/4">
                     <button className="btn btn-info mr-5 text-white">Discover More</button>
-                    <button className="btn btn-outline btn-info">More About Service</button>
+
                 </div>
                 <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
                     <a href="#slide2" className="btn btn-circle mr-4">❮</a>

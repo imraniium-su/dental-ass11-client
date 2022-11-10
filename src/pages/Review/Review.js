@@ -1,12 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contex/Authprovider/AuthProvider';
 import ReviewRow from './ReviewRow/ReviewRow';
+import toast from 'react-hot-toast';
+import useTitle from '../../hooks/usetitle';
 
 const Review = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [reviews, setReview] = useState([]);
+    useTitle('my review')
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?user_email=${user?.email}`)
+        fetch(`https://assignment-11-dental-server.vercel.app/reviews?user_email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('dentalCare-token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setReview(data))
     }, [user?.email])
@@ -14,24 +21,33 @@ const Review = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to cancel this ');
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://assignment-11-dental-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE',
             })
-                .then(res => res.json())
+                .then(res => {
+                    if (res.status === 401 || res.status === 403) {
+                        return logOut()
+                    }
+                    return res.json();
+                })
                 .then(data => {
                     console.log(data);
                     if (data.deletedCount > 0) {
-                        alert('delete successfully');
+
+                        toast.success('Succesfully delete')
                         const remaining = reviews.filter(rev => rev._id !== id);
                         setReview(remaining);
                     }
                 })
         }
     }
-    const handleReviewUpdate = (event) => {
-        event.preventDefault();
-        const review_t = event.target.review.value;
+
+    const update = () => {
+        fetch(`https://assignment-11-dental-server.vercel.app/reviews?user_email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => setReview(data))
     }
+
     return (
         <div>
 
@@ -60,7 +76,7 @@ const Review = () => {
                         {
                             reviews.map(review => <ReviewRow key={review._id} review={review}
 
-                                handleDelete={handleDelete} handleReviewUpdate={handleReviewUpdate}></ReviewRow>)
+                                handleDelete={handleDelete} update={update}></ReviewRow>)
                         }
 
                     </tbody>

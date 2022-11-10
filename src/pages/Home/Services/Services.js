@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../hooks/usetitle';
 import Meetteam from '../Meetteam/Meetteam';
 import ServiceChart from './ServiceChart/ServiceChart';
 import ServiceDetails from './ServiceDetails/ServiceDetails';
 
 const Services = () => {
     const [services, setService] = useState([]);
+    useTitle('service')
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://assignment-11-dental-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setService(data))
     }, [])

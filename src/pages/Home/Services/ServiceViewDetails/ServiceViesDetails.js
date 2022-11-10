@@ -3,14 +3,15 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../../contex/Authprovider/AuthProvider';
 import { FaUser, FaSun, FaMoon } from 'react-icons/fa';
 import ServiceViewReview from './ServiceVIewReview/ServiceViewReview';
+import useTitle from '../../../../hooks/usetitle';
 
 const ServiceViesDetails = () => {
     const { _id, title, img, description, price } = useLoaderData();
     const { user } = useContext(AuthContext);
     const [reviews, setReview] = useState([]);
-    console.log(reviews);
+    useTitle('view details')
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?user_email=${user?.email}`)
+        fetch(`https://assignment-11-dental-server.vercel.app/reviews?user_email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [user?.email])
@@ -26,7 +27,7 @@ const ServiceViesDetails = () => {
         const user_photo = user.photoURL;
 
         const review = { review_t, service_id, user_id, user_email, user_name, user_photo }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://assignment-11-dental-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -60,19 +61,21 @@ const ServiceViesDetails = () => {
                 </div>
             </div>
             <div className='my-10'>
-                <div className='bg-slate-200 rounded py-1'>
+                <div className='bg-slate-200 rounded py-1 mx-4'>
                     <h2 className='text-3xl text-center font-semibold mb-4'>Review</h2>
                 </div>
-                <div className='p-2 bg-slate-200 my-2 rounded mx-2'>
+
+                <div className='p-2  my-2 rounded mx-2'>
                     {
                         reviews.map(review => <ServiceViewReview key={review._id} review={review}></ServiceViewReview>)
                     }
                 </div>
+
                 <form onSubmit={handleSubmit} >
 
-                    <textarea name="review" className="textarea textarea-bordered h-24 w-full mt-4" placeholder="Your Review" required></textarea>
+                    <textarea name="review" className="textarea textarea-bordered h-24 w-full mt-4 mx-2" placeholder="Your Review" required></textarea>
 
-                    <input className='btn mt-2' type="submit" value="Add review" />
+                    <input className='btn mt-2 ml-2' type="submit" value="Add review" />
                 </form>
             </div>
         </div>

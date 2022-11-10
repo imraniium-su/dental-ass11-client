@@ -5,7 +5,7 @@ import './Footer.css'
 const Footer = () => {
     const [services, setService] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://assignment-11-dental-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setService(data))
     }, [])
